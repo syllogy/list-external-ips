@@ -1,10 +1,17 @@
 #!/bin/bash
 
-gcloud projects list --format="value(projectId)" > projects.txt
-if [ "$?" -ne 0 ]
+PROJECT_INPUT=$1
+
+if [[ $PROJECT_INPUT != "" ]]
 then
-	rm projects.txt
-	exit 1
+	echo $PROJECT_INPUT > projects.txt
+else
+	gcloud projects list --format="value(projectId)" > projects.txt
+	if [ "$?" -ne 0 ]
+	then
+		rm projects.txt
+		exit 1
+	fi
 fi
 echo "Project	Instance_Name	External_Ip	Is_Preemptible	Monthly_Cost" > projectsIPs.csv
 
