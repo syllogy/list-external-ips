@@ -20,4 +20,3 @@ curl https://raw.githubusercontent.com/doitintl/list-external-ips/master/ext-ips
 The script creates a file named projectsIPs.csv in the execution folder, like the one below:
 
 ![Output](/images/output.png)
-Format: ![Alt Text](url)
